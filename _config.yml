@@ -21,8 +21,8 @@ author: Raian Kudashev
 
 navbar-links:
   CV: "aboutme"
-  Work in progress:
-  Teaching:
+  Work in progress: "progress"
+  Teaching: "teaching"
   
 
 ################
