@@ -116,7 +116,7 @@ author:
   name             : "Raian Kudashev"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Doctoral researcher at the University of Luxembourg."
-  location         : "Luxembourg."
+  location         : "Luxembourg"
   email            :
   links:
     - label: "Email"
