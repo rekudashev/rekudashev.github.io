@@ -3,9 +3,7 @@ main:
 
   - title: "CV"
     url: /about/
-  - title: "Research"
+  - title: "RESEARCH"
     url: /lorem-ipsum/
-  - title: "Teaching"
-    url: /lorem-ipsum/
-  - title: "Job Market Paper"
+ - title: "JMP"
     url: /lorem-ipsum/
