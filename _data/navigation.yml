@@ -2,8 +2,8 @@
 main:
 
   - title: "CV"
-    url: /about/
+    url: /lorem-ipsum/
   - title: "RESEARCH"
     url: /lorem-ipsum/
- - title: "JMP"
+  - title: "JMP"
     url: /lorem-ipsum/
