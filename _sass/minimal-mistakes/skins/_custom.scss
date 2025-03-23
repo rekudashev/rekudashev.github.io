@@ -1,19 +1,21 @@
 /* ==========================================================================
-   Contrast skin
+   Contrast Skin (Updated for Better Readability)
    ========================================================================== */
 
 /* Colors */
-$text-color: #000 !default;
+$text-color: #222 !default; // Dark gray instead of pure black for better readability
 $muted-text-color: $text-color !default;
-$primary-color: #A61F0F !default;
-$border-color: mix(#A61F0F, $text-color, 75%) !default;
-$footer-background-color: #A61F0F !default;
-$link-color: #A61F0F !default;
+$primary-color: #8C1A0D !default; // Darker red for a more balanced feel
+$border-color: mix(#8C1A0D, $text-color, 75%) !default;
+$footer-background-color: #8C1A0D !default;
+$link-color: #BF2C1A !default; // Brighter red for better visibility
+//$link-color: #1E90FF !default; // Alternative: Blue for improved link recognition
+
 $masthead-link-color: $text-color !default;
 $masthead-link-color-hover: $text-color !default;
-$navicon-link-color-hover: mix(#A61F0F, $text-color, 80%) !default;
+$navicon-link-color-hover: mix(#8C1A0D, $text-color, 80%) !default;
 
-/* contrast syntax highlighting (base16) */
+/* Contrast Syntax Highlighting (Base16) */
 $base00: #000000 !default;
 $base01: #242422 !default;
 $base02: #484844 !default;
@@ -31,6 +33,7 @@ $base0d: #96cbfe !default;
 $base0e: #ff73fd !default;
 $base0f: #b18a3d !default;
 
+/* Adjust Notices and Text Elements */
 .page__content {
   .notice,
   .notice--primary,
@@ -42,11 +45,14 @@ $base0f: #b18a3d !default;
   }
 }
 
+/* Footer Styling */
 .page__footer {
-  color: #fff !important; // override
+  color: #fff !important; // Ensures footer text remains readable
+  background-color: $footer-background-color;
 }
 
+/* Social Icons in Footer */
 .page__footer-follow .social-icons i,
-.page__footer-follow .social-icons .svg-inline--fa  {
+.page__footer-follow .social-icons .svg-inline--fa {
   color: inherit;
 }
