@@ -1,31 +1,89 @@
-/* Default Light Mode (CSS Variables) */
+/* ==========================================================================
+   Custom Skin (Light & Dark Mode)
+   ========================================================================== */
+
+/* 🌞 Default Light Mode */
 :root {
-  --text-color: #222;
-  --background-color: #fff;
-  --primary-color: #8C1A0D;
-  --link-color: #BF2C1A;
-  --footer-background-color: #8C1A0D;
+  --text-color: #222; /* Standard text */
+  --background-color: #fff; /* White background */
+  --primary-color: #8C1A0D; /* Dark red (original theme accent) */
+  --link-color: #BF2C1A; /* Reddish links */
+  --footer-background-color: #A61F0F; /* Footer background */
+  --masthead-background-color: #fff; /* Top navigation bar */
+  --masthead-text-color: #000; /* Dark text for header */
+  --sidebar-background-color: #f8f8f8; /* Light sidebar */
 }
 
-/* Dark Mode */
+/* 🌙 Improved Dark Mode */
 [data-theme="dark"] {
-  --text-color: #f5f5f5;
-  --background-color: #121212;
-  --primary-color: #ff6347; /* Lighter red for better contrast */
-  --link-color: #FF8C42;
-  --footer-background-color: #252525;
+  --text-color: #EAEAEA; /* Light gray text */
+  --background-color: #181818; /* Dark background */
+  --primary-color: #4E9A06; /* Soft green for accents */
+  --link-color: #64B5F6; /* Blue links */
+  --footer-background-color: #222222; /* Darker footer */
+  --masthead-background-color: #222222; /* Dark masthead */
+  --masthead-text-color: #EAEAEA; /* Light text in the masthead */
+  --sidebar-background-color: #242424; /* Dark sidebar */
 }
 
-/* Apply Variables */
+/* ✅ Apply Variables */
 body {
   color: var(--text-color);
   background-color: var(--background-color);
 }
 
+/* ✅ Links */
 a {
   color: var(--link-color);
 }
+a:hover {
+  color: lighten(var(--link-color), 15%);
+}
 
+/* ✅ Footer */
 .page__footer {
   background-color: var(--footer-background-color);
+  color: var(--text-color);
+}
+
+/* ✅ Masthead (Top Navigation Bar) */
+.masthead {
+  background-color: var(--masthead-background-color);
+}
+.masthead__inner-wrap {
+  color: var(--masthead-text-color);
+}
+.masthead a {
+  color: var(--masthead-text-color);
+}
+.masthead a:hover {
+  color: lighten(var(--masthead-text-color), 20%);
+}
+
+/* ✅ Sidebar */
+.sidebar {
+  background-color: var(--sidebar-background-color);
+  color: var(--text-color);
+}
+
+/* ✅ Notices & Alerts */
+.notice {
+  background-color: lighten(var(--background-color), 5%);
+  color: var(--text-color);
+}
+
+/* ✅ Buttons & Form Elements */
+button, input, select, textarea {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid var(--primary-color);
+}
+button:hover, input:hover, select:hover, textarea:hover {
+  border-color: lighten(var(--primary-color), 10%);
+}
+
+/* ✅ Code Blocks */
+pre, code {
+  background-color: lighten(var(--background-color), 10%);
+  color: var(--text-color);
 }
