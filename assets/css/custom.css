@@ -1,52 +1,52 @@
 /* ==========================================================================
-   Custom Skin (Light & Dark Mode)
+   Custom CSS (Light & Dark Mode)
    ========================================================================== */
 
-/* 🌞 Default Light Mode */
+/* Light Mode */
 :root {
-  --text-color: #222; /* Standard text */
+  --text-color: #222; /* Standard dark gray text */
   --background-color: #fff; /* White background */
-  --primary-color: #8C1A0D; /* Dark red (original theme accent) */
-  --link-color: #BF2C1A; /* Reddish links */
-  --footer-background-color: #A61F0F; /* Footer background */
-  --masthead-background-color: #fff; /* Top navigation bar */
-  --masthead-text-color: #000; /* Dark text for header */
+  --primary-color: #9C1C0D; /* Softer dark red */
+  --link-color: #B3220E; /* Red with improved contrast */
+  --footer-background-color: #881A0B; /* Deeper footer red */
+  --masthead-background-color: #fff; /* White masthead */
+  --masthead-text-color: #000; /* Black text */
   --sidebar-background-color: #f8f8f8; /* Light sidebar */
 }
 
-/* 🌙 Improved Dark Mode */
+/* Dark Mode */
 [data-theme="dark"] {
   --text-color: #EAEAEA; /* Light gray text */
   --background-color: #181818; /* Dark background */
-  --primary-color: #4E9A06; /* Soft green for accents */
-  --link-color: #64B5F6; /* Blue links */
+  --primary-color: #B5442A; /* Warmer red in dark mode */
+  --link-color: #FF7043; /* Bright orange-red links */
   --footer-background-color: #222222; /* Darker footer */
-  --masthead-background-color: #222222; /* Dark masthead */
-  --masthead-text-color: #EAEAEA; /* Light text in the masthead */
+  --masthead-background-color: #1A1A1A; /* Dark masthead */
+  --masthead-text-color: #EAEAEA; /* Light text for contrast */
   --sidebar-background-color: #242424; /* Dark sidebar */
 }
 
-/* ✅ Apply Variables */
+/* Apply Variables */
 body {
   color: var(--text-color);
   background-color: var(--background-color);
 }
 
-/* ✅ Links */
+/* Links */
 a {
   color: var(--link-color);
 }
 a:hover {
-  color: lighten(var(--link-color), 15%);
+  color: rgba(255, 112, 67, 0.8);
 }
 
-/* ✅ Footer */
+/* Footer */
 .page__footer {
   background-color: var(--footer-background-color);
   color: var(--text-color);
 }
 
-/* ✅ Masthead (Top Navigation Bar) */
+/* Masthead (Top Navigation Bar) */
 .masthead {
   background-color: var(--masthead-background-color);
 }
@@ -57,33 +57,33 @@ a:hover {
   color: var(--masthead-text-color);
 }
 .masthead a:hover {
-  color: lighten(var(--masthead-text-color), 20%);
+  color: rgba(234, 234, 234, 0.85);
 }
 
-/* ✅ Sidebar */
+/* Sidebar */
 .sidebar {
   background-color: var(--sidebar-background-color);
   color: var(--text-color);
 }
 
-/* ✅ Notices & Alerts */
+/* Notices & Alerts */
 .notice {
-  background-color: lighten(var(--background-color), 5%);
+  background-color: rgba(255, 255, 255, 0.05);
   color: var(--text-color);
 }
 
-/* ✅ Buttons & Form Elements */
+/* Buttons & Form Elements */
 button, input, select, textarea {
   background-color: var(--background-color);
   color: var(--text-color);
   border: 1px solid var(--primary-color);
 }
 button:hover, input:hover, select:hover, textarea:hover {
-  border-color: lighten(var(--primary-color), 10%);
+  border-color: rgba(156, 28, 13, 0.8);
 }
 
-/* ✅ Code Blocks */
+/* Code Blocks */
 pre, code {
-  background-color: lighten(var(--background-color), 10%);
+  background-color: rgba(255, 255, 255, 0.1);
   color: var(--text-color);
 }
