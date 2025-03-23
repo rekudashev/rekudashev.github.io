@@ -13,6 +13,6 @@ I am a structural urban economist who employs quantitative spatial urban models 
 
 This fall, I will join VU Amsterdam as a postdoctoral researcher.
 
-Feel free to explore the site, and if you’d like to know more about my work, you can also check out my [CV](/assets/files/CV.pdf).
+Feel free to explore the site, and if you’d like to know more about my work, you can also check out my [CV](/assets/files/CV_2025.pdf).
 
 
