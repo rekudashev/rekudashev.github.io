@@ -1,7 +1,8 @@
 ---
 layout: home
 title: ""
-description: "Hi, I'm Raian!"
+description: ""
+recent_posts: false
 ---
 
 Hello, and welcome to my website!
