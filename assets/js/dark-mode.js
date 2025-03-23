@@ -9,15 +9,22 @@ document.addEventListener("DOMContentLoaded", function () {
         document.documentElement.setAttribute("data-theme", theme);
         localStorage.setItem("theme", theme);
 
-        // Force Navicon to Invert
+        // Force Navicon Update
         updateNavicon(theme);
     }
 
     function updateNavicon(theme) {
         const navicon = document.querySelector(".navicon");
         if (navicon) {
-            navicon.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue("--masthead-background-color");
-            navicon.style.color = getComputedStyle(document.documentElement).getPropertyValue("--masthead-text-color");
+            const rootStyles = getComputedStyle(document.documentElement);
+            navicon.style.backgroundColor = rootStyles.getPropertyValue("--masthead-background-color").trim();
+            navicon.style.color = rootStyles.getPropertyValue("--masthead-text-color").trim();
+
+            // ✅ Force a Repaint to Ensure the Color Updates
+            navicon.style.display = "none";
+            setTimeout(() => {
+                navicon.style.display = "block";
+            }, 10);
         }
     }
 
