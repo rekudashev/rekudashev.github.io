@@ -2,7 +2,9 @@
 main:
 
   - title: "HOMEPAGE"
-    url: /
+    url: "https://rekudashev.github.io/"
   - title: "RESEARCH"
-    url: /research/
+    url: "/research/"
+  - title: "CV"
+    url: "/assets/files/CV.pdf"
 
