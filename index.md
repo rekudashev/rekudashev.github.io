@@ -1,14 +1,12 @@
 ---
 layout: home
-title: "Welcome to My Website"
+title: ""
 description: "Hi, I'm Raian!"
 ---
 
-Hello and welcome to my website!
+Hello, and welcome to my website!
 
-My name is **[Raian Kudashev]**.
-
-I'm a doctoral student at the University of Luxembourg.
+My name is Raian, and I'm a doctoral student at the University of Luxembourg.
 
 I am a structural urban economist who uses quantitative spatial urban models and applies them to cross-border labor mobility, taxation, and housing markets.
 
