@@ -7,6 +7,7 @@
   <head>
     {% include head.html %}
     {% include head/custom.html %}
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/custom.css">
   </head>
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}" dir="{% if site.rtl %}rtl{% else %}ltr{% endif %}">
@@ -31,7 +32,7 @@
       </footer>
     </div>
 
-    <!-- 🌙 Dark Mode Toggle Script -->
+    <!-- Dark Mode Toggle Script -->
     <script src="{{ site.baseurl }}/assets/js/dark-mode.js"></script>
     
     {% include scripts.html %}
