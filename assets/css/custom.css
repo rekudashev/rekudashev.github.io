@@ -87,8 +87,8 @@ body {
 
 /* ✅ Ensure Navicon Matches Masthead & Inverts Correctly */
 .navicon {
-  background-color: var(--navicon-background-color) !important;
-  color: var(--navicon-text-color) !important;
+  background-color: var(--masthead-background-color) !important;
+  color: var(--masthead-text-color) !important;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
@@ -100,7 +100,7 @@ body {
 
 /* ✅ Fix Navicon Links */
 .navicon a {
-  color: var(--navicon-text-color) !important;
+  color: var(--masthead-text-color) !important;
 }
 .navicon a:hover {
   color: var(--navicon-link-color-hover) !important;
