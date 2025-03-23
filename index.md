@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: single
 title: ""
 description: ""
 recent_posts: false
