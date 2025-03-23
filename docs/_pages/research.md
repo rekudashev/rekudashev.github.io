@@ -1,17 +1,17 @@
 ---
 layout: single
-title: "Research"
+title: ""
 permalink: /research/
 ---
 
 ### **Work in Progress**
 
-#### **Land Rent Discontinuities and Taxation in the Cross-Border Commuting Region **
+#### **Land Rent Discontinuities and Taxation in the Cross-Border Commuting Region**
 *Raian Kudashev, Pierre Picard*  
 <details>
   <summary>Abstract</summary>
   <p>
-    Cross-border housing markets have become more prevalent in Europe since the establishment of the European Union. With data from the functional urban area of Luxembourg, we document significant floorspace rent discontinuities at the borders of Luxembourg with Belgium, France, and Germany. Using a quantitative spatial urban model and spatial regression discontinuity techniques, we show that differences in tax rates account for up to 16\% of the floorspace rent discontinuity. The remaining rent discontinuity is explained by differences in land use, productivity, and amenities. Equalizing tax regimes would lower Luxembourg rents by 160 euros per month for an average apartment, with additional reductions of 383 euros when combined with equalized land use restrictions.
+    Cross-border housing markets have become more prevalent in Europe since the establishment of the European Union. With data from the functional urban area of Luxembourg, we document significant floorspace rent discontinuities at the borders of Luxembourg with Belgium, France, and Germany. Using a quantitative spatial urban model and spatial regression discontinuity techniques, we show that differences in tax rates account for up to 16% of the floorspace rent discontinuity. The remaining rent discontinuity is explained by differences in land use, productivity, and amenities. Equalizing tax regimes would lower Luxembourg rents by 160 euros per month for an average apartment, with additional reductions of 383 euros when combined with equalized land use restrictions.
   </p>
 </details>
 
