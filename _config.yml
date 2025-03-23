@@ -114,7 +114,7 @@ analytics:
 # Site Author
 author:
   name             : "Raian Kudashev"
-  avatar           : "/docs/assets/images/big-bird.jpeg"
+  avatar           : "/assets/images/bio-photo.jpg"
   bio              : "Doctoral researcher at the University of Luxembourg."
   location         : "Luxembourg"
   email            :
