@@ -1,9 +1,6 @@
 # main links
 main:
 
-  - title: "CV"
-    url: /lorem-ipsum/
   - title: "RESEARCH"
     url: /research/
-  - title: "JMP"
-    url: /lorem-ipsum/
+
