@@ -12,7 +12,7 @@
   --masthead-background-color: #ffffff; /* White masthead */
   --masthead-text-color: #000; /* Black text */
   --sidebar-background-color: #f8f8f8; /* Light sidebar */
-  --frame-background-color: transparent; /* Removes unwanted frame */
+  --author-background-color: #f8f8f8; /* Light author block */
 }
 
 /* 🌙 Dark Mode */
@@ -25,54 +25,58 @@
   --masthead-background-color: #101010; /* Proper dark top navigation */
   --masthead-text-color: #EAEAEA; /* Light text in top navigation */
   --sidebar-background-color: #242424; /* Dark sidebar */
-  --frame-background-color: transparent; /* Removes frame in dark mode too */
+  --author-background-color: #202020; /* Darker author block */
 }
 
-/* ✅ Apply Variables */
+/* ✅ Apply Global Styles */
 body {
-  color: var(--text-color);
-  background-color: var(--background-color);
+  color: var(--text-color) !important;
+  background-color: var(--background-color) !important;
 }
 
-/* ✅ Links */
-a {
-  color: var(--link-color);
-}
-a:hover {
-  color: rgba(255, 112, 67, 0.8);
+/* ✅ Ensure All Text Changes to Light Mode in Dark Mode */
+[data-theme="dark"] * {
+  color: var(--text-color) !important;
 }
 
-/* ✅ Top Navigation Bar */
-.masthead {
+/* ✅ Fix Top Navigation Bar */
+.masthead, .site-header, .nav__list {
   background-color: var(--masthead-background-color) !important;
   color: var(--masthead-text-color) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-.masthead__inner-wrap {
-  color: var(--masthead-text-color);
+.masthead a, .nav__list a {
+  color: var(--masthead-text-color) !important;
 }
-.masthead a {
-  color: var(--masthead-text-color);
-}
-.masthead a:hover {
-  color: rgba(234, 234, 234, 0.85);
+.masthead a:hover, .nav__list a:hover {
+  color: rgba(234, 234, 234, 0.85) !important;
 }
 
 /* ✅ Footer */
 .page__footer {
-  background-color: var(--footer-background-color);
-  color: var(--text-color);
+  background-color: var(--footer-background-color) !important;
+  color: var(--text-color) !important;
 }
 
 /* ✅ Sidebar */
 .sidebar {
-  background-color: var(--sidebar-background-color);
-  color: var(--text-color);
+  background-color: var(--sidebar-background-color) !important;
+  color: var(--text-color) !important;
 }
 
-/* ✅ Remove Unwanted Grey Frame */
-.author__avatar, .author__name {
-  background-color: var(--frame-background-color) !important;
+/* ✅ Fix Author Block Background & Text */
+.author__content, .author__bio, .author__name {
+  background-color: var(--author-background-color) !important;
+  color: var(--text-color) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ✅ Remove Unwanted Borders */
+.author__content {
+  border: none !important;
+  padding: 15px !important;
+  box-shadow: none !important;
 }
 
 /* ✅ Notices & Alerts */
