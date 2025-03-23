@@ -1,6 +1,8 @@
 # main links
 main:
 
+  - title: "HOMEPAGE"
+    url: /
   - title: "RESEARCH"
     url: /research/
 
