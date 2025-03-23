@@ -40,39 +40,64 @@
   --author-background-color: #181818; /* Matches the page background */
 }
 
-/* ✅ Global Page Styling */
+/* ✅ Apply Global Page Styling */
 body {
   color: var(--text-color);
   background-color: var(--background-color);
 }
 
 /* ✅ Top Navigation Bar & Toolbar */
-.masthead, .site-header, .nav__list {
+.masthead {
   background-color: var(--masthead-background-color) !important;
   color: var(--masthead-text-color) !important;
   border-bottom: 1px solid var(--masthead-border-color) !important;
 }
-.masthead__inner-wrap, .nav__list {
-  color: var(--masthead-text-color) !important;
-}
+
+/* ✅ Ensure Navigation Links Change Color */
 .masthead a, .nav__list a {
   color: var(--masthead-text-color) !important;
+  text-decoration: none;
 }
+
 .masthead a:hover, .nav__list a:hover {
   color: var(--navicon-link-color-hover) !important;
 }
 
-/* ✅ Navicon (Matches Masthead Background & Text) */
+/* ✅ Fix Navigation List Inside Masthead */
+.masthead__inner-wrap {
+  background-color: var(--masthead-background-color) !important;
+  color: var(--masthead-text-color) !important;
+}
+
+/* ✅ Ensure Dropdown Menus (if any) Also Change */
+.nav__list {
+  background-color: var(--masthead-background-color) !important;
+  color: var(--masthead-text-color) !important;
+}
+
+.nav__list a {
+  color: var(--masthead-text-color) !important;
+}
+
+.nav__list a:hover {
+  color: var(--navicon-link-color-hover) !important;
+}
+
+/* ✅ Ensure Navicon Matches Masthead */
 .navicon {
   background-color: var(--navicon-background-color) !important;
   color: var(--navicon-text-color) !important;
-  border-bottom: 1px solid var(--masthead-border-color) !important;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
-.navicon a {
+
+/* ✅ Fix Mobile Menu Button (If Needed) */
+.navicon__menu {
+  background-color: var(--navicon-background-color) !important;
   color: var(--navicon-text-color) !important;
+  border: none !important;
 }
-.navicon a:hover {
-  color: var(--navicon-link-color-hover) !important;
+.navicon__menu:hover {
+  background-color: var(--navicon-link-color-hover) !important;
 }
 
 /* ✅ Sidebar */
@@ -117,4 +142,14 @@ button:hover, input:hover, select:hover, textarea:hover {
 pre, code {
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--text-color);
+}
+
+/* ✅ Ensure Smooth Theme Transitions */
+body.theme-transition .masthead,
+body.theme-transition .navicon,
+body.theme-transition .nav__list,
+body.theme-transition .sidebar,
+body.theme-transition .page__footer,
+body.theme-transition .author__content {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }

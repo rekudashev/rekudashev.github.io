@@ -1,25 +1,34 @@
 document.addEventListener("DOMContentLoaded", function () {
     const toggle = document.getElementById("dark-mode-toggle");
+    if (!toggle) return;
 
-    if (!toggle) {
-        console.error("Dark mode toggle button not found.");
-        return;
+    let storedTheme = localStorage.getItem("theme") || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", storedTheme);
+
+    function updateThemeElements(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+
+        // Force Masthead Text Update
+        updateMastheadText(theme);
     }
 
-    // Check stored theme preference
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme) {
-        document.documentElement.setAttribute("data-theme", storedTheme);
-    } else {
-        document.documentElement.setAttribute("data-theme", "light"); // Default theme
+    function updateMastheadText(theme) {
+        document.querySelectorAll(".masthead a, .nav__list a").forEach(link => {
+            link.style.color = getComputedStyle(document.documentElement).getPropertyValue("--masthead-text-color");
+        });
     }
 
-    // Toggle dark mode
+    updateThemeElements(storedTheme);
+
     toggle.addEventListener("click", function () {
-        let currentTheme = document.documentElement.getAttribute("data-theme");
-        let newTheme = currentTheme === "dark" ? "light" : "dark";
+        let newTheme = storedTheme === "dark" ? "light" : "dark";
+        updateThemeElements(newTheme);
+        storedTheme = newTheme;
+    });
 
-        document.documentElement.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+        let systemTheme = e.matches ? "dark" : "light";
+        updateThemeElements(systemTheme);
     });
 });
