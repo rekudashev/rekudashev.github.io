@@ -9,14 +9,16 @@ document.addEventListener("DOMContentLoaded", function () {
         document.documentElement.setAttribute("data-theme", theme);
         localStorage.setItem("theme", theme);
 
-        // Force Masthead Text Update
-        updateMastheadText(theme);
+        // Force Navicon to Invert
+        updateNavicon(theme);
     }
 
-    function updateMastheadText(theme) {
-        document.querySelectorAll(".masthead a, .nav__list a").forEach(link => {
-            link.style.color = getComputedStyle(document.documentElement).getPropertyValue("--masthead-text-color");
-        });
+    function updateNavicon(theme) {
+        const navicon = document.querySelector(".navicon");
+        if (navicon) {
+            navicon.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue("--masthead-background-color");
+            navicon.style.color = getComputedStyle(document.documentElement).getPropertyValue("--masthead-text-color");
+        }
     }
 
     updateThemeElements(storedTheme);

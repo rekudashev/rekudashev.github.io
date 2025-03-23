@@ -10,6 +10,7 @@
   --primary-color: #8C1A0D; /* Dark red */
   --border-color: #B5463C; /* Blended red */
   --footer-background-color: #A61F0F;
+  --footer-text-color: #ffffff; /* White footer text in light mode */
   --link-color: #BF2C1A; /* Brighter red */
   --masthead-background-color: #ffffff; /* White top navigation */
   --masthead-text-color: #222; /* Dark text */
@@ -29,6 +30,7 @@
   --primary-color: #B5442A; /* Softer red in dark mode */
   --border-color: #882B22;
   --footer-background-color: #222222;
+  --footer-text-color: #EAEAEA; /* Light footer text in dark mode */
   --link-color: #FF7043; /* Brighter orange-red */
   --masthead-background-color: #101010; /* Proper dark top navigation */
   --masthead-text-color: #EAEAEA; /* Light text in top navigation */
@@ -83,21 +85,25 @@ body {
   color: var(--navicon-link-color-hover) !important;
 }
 
-/* ✅ Ensure Navicon Matches Masthead */
+/* ✅ Ensure Navicon Matches Masthead & Inverts Correctly */
 .navicon {
   background-color: var(--navicon-background-color) !important;
   color: var(--navicon-text-color) !important;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-/* ✅ Fix Mobile Menu Button (If Needed) */
-.navicon__menu {
-  background-color: var(--navicon-background-color) !important;
-  color: var(--navicon-text-color) !important;
-  border: none !important;
+/* ✅ Invert Navicon in Dark Mode */
+[data-theme="dark"] .navicon {
+  background-color: var(--masthead-background-color) !important;
+  color: var(--masthead-text-color) !important;
 }
-.navicon__menu:hover {
-  background-color: var(--navicon-link-color-hover) !important;
+
+/* ✅ Fix Navicon Links */
+.navicon a {
+  color: var(--navicon-text-color) !important;
+}
+.navicon a:hover {
+  color: var(--navicon-link-color-hover) !important;
 }
 
 /* ✅ Sidebar */
@@ -114,10 +120,10 @@ body {
   box-shadow: none !important;
 }
 
-/* ✅ Footer */
+/* ✅ Footer (Now White Text in Light Mode) */
 .page__footer {
   background-color: var(--footer-background-color) !important;
-  color: var(--text-color) !important;
+  color: var(--footer-text-color) !important;
 }
 
 /* ✅ Links */
