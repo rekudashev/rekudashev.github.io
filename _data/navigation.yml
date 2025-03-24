@@ -1,9 +1,9 @@
 # main links
 main:
 
-  - title: "HOMEPAGE"
+  - title: "Homepage"
     url: "https://rekudashev.github.io/"
-  - title: "RESEARCH"
+  - title: "Research"
     url: "/research/"
   - title: "CV"
     url: "/assets/files/CV_2025.pdf"
