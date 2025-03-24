@@ -3,13 +3,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!toggle) return;
 
-    // Get current theme (or default to "custom")
+    // Get stored theme or default to "custom"
     let storedTheme = localStorage.getItem("theme") || "custom";
     document.documentElement.setAttribute("data-theme", storedTheme);
+    updateButtonText(storedTheme);
 
     function updateTheme(theme) {
         document.documentElement.setAttribute("data-theme", theme);
         localStorage.setItem("theme", theme);
+        updateButtonText(theme);
+    }
+
+    function updateButtonText(theme) {
+        toggle.textContent = theme === "dark" ? "Light Mode" : "Dark Mode";
     }
 
     toggle.addEventListener("click", function () {
