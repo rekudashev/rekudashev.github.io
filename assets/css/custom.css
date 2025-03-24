@@ -111,4 +111,51 @@ a:hover {
 }
 
 
+/* 🌞 Light Mode (Your Custom Contrast Skin) */
+:root {
+  --background-color: #ffffff;
+  --text-color: #222;
+  --primary-color: #8C1A0D;
+  --footer-background-color: #A61F0F;
+  --masthead-background-color: #ffffff;
+  --sidebar-background-color: #ffffff;
+}
+
+/* 🌙 Dark Mode (Minimal Mistakes Built-in Theme) */
+[data-theme="dark"] {
+  --background-color: #181818;
+  --text-color: #EAEAEA;
+  --primary-color: #B5442A;
+  --footer-background-color: #222222;
+  --masthead-background-color: #101010;
+  --sidebar-background-color: #181818;
+}
+
+/* ✅ Apply Theme Colors */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.masthead, .navicon {
+  background-color: var(--masthead-background-color);
+  color: var(--text-color);
+}
+
+.sidebar {
+  background-color: var(--sidebar-background-color);
+  color: var(--text-color);
+}
+
+.page__footer {
+  background-color: var(--footer-background-color);
+  color: var(--text-color);
+}
+
+/* ✅ Apply Smooth Transition */
+.theme-transition {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+
 
