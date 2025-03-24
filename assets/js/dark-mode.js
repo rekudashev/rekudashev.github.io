@@ -3,14 +3,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const toggle = document.getElementById("dark-mode-toggle");
 
         if (!toggle) {
-            console.error("Dark Mode button not found!");
+            console.error("❌ Dark Mode button not found!");
             return;
         }
 
-        console.log("Dark Mode button found!");
+        console.log("✅ Dark Mode button found!");
 
-        // Get stored theme or default to "dark" (start in dark mode)
+        // Get stored theme or default to "dark" (Dark Mode by default)
         let storedTheme = localStorage.getItem("theme") || "dark";
+        console.log("🔄 Initial theme:", storedTheme);
         applyTheme(storedTheme);
 
         function applyTheme(theme) {
@@ -18,26 +19,25 @@ document.addEventListener("DOMContentLoaded", function () {
             localStorage.setItem("theme", theme);
             updateButtonText(theme);
 
-            // Force reflow to apply theme immediately
-            document.documentElement.classList.remove("theme-transition");
-            void document.documentElement.offsetWidth; // Trigger reflow
-            document.documentElement.classList.add("theme-transition");
+            console.log("🎨 Applied theme:", theme);
         }
 
         function updateButtonText(theme) {
             toggle.textContent = theme === "dark" ? "Light Mode" : "Dark Mode";
+            console.log("📝 Button text updated to:", toggle.textContent);
         }
 
-        // ✅ Ensure click event works correctly
+        // ✅ Ensure click event toggles the theme
         toggle.addEventListener("click", function () {
             let currentTheme = document.documentElement.getAttribute("data-theme");
             let newTheme = (currentTheme === "dark") ? "custom" : "dark";
+            console.log("🛠 Switching theme from", currentTheme, "to", newTheme);
             applyTheme(newTheme);
         });
 
-        console.log("Dark Mode script loaded successfully!");
+        console.log("🚀 Dark Mode script loaded successfully!");
     }
 
-    // Wait until everything is fully loaded, then initialize
+    // Ensure script runs after full page load
     window.addEventListener("load", initializeDarkMode);
 });
