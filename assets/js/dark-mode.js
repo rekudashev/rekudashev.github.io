@@ -9,30 +9,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
         console.log("Dark Mode button found!");
 
-        // Get stored theme or default to "custom" (light)
-        let storedTheme = localStorage.getItem("theme") || "custom";
-        document.documentElement.setAttribute("data-theme", storedTheme);
-        updateButtonText(storedTheme);
+        // Get stored theme or default to "dark" (start in dark mode)
+        let storedTheme = localStorage.getItem("theme") || "dark";
+        applyTheme(storedTheme);
 
-        function updateTheme(theme) {
+        function applyTheme(theme) {
             document.documentElement.setAttribute("data-theme", theme);
             localStorage.setItem("theme", theme);
             updateButtonText(theme);
+
+            // Force reflow to apply theme immediately
+            document.documentElement.classList.remove("theme-transition");
+            void document.documentElement.offsetWidth; // Trigger reflow
+            document.documentElement.classList.add("theme-transition");
         }
 
         function updateButtonText(theme) {
             toggle.textContent = theme === "dark" ? "Light Mode" : "Dark Mode";
         }
 
+        // ✅ Ensure click event works correctly
         toggle.addEventListener("click", function () {
             let currentTheme = document.documentElement.getAttribute("data-theme");
-            let newTheme = (currentTheme === "custom") ? "dark" : "custom";
-            updateTheme(newTheme);
+            let newTheme = (currentTheme === "dark") ? "custom" : "dark";
+            applyTheme(newTheme);
         });
 
         console.log("Dark Mode script loaded successfully!");
     }
 
-    // Wait for the full DOM to be loaded, then initialize dark mode
+    // Wait until everything is fully loaded, then initialize
     window.addEventListener("load", initializeDarkMode);
 });
