@@ -73,7 +73,7 @@ a:hover {
   color: var(--navicon-link-color-hover);
 }
 
-//* ✅ Dark Mode Button Styling in Sidebar */
+/* ✅ Ensure Dark Mode Button Matches Theme in Sidebar */
 #dark-mode-toggle {
   display: block;
   width: 100%;
@@ -84,27 +84,31 @@ a:hover {
   text-align: center;
   cursor: pointer;
   border-radius: 5px;
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  border: 2px solid var(--navicon-link-color-hover) !important;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 
 /* 🌞 Light Mode Button */
 :root #dark-mode-toggle {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  border: 2px solid var(--navicon-link-color-hover);
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  border: 2px solid var(--navicon-link-color-hover) !important;
 }
 
 /* 🌙 Dark Mode Button */
 [data-theme="dark"] #dark-mode-toggle {
-  background-color: var(--background-color);
-  color: var(--text-color);
-  border: 2px solid var(--navicon-link-color-hover);
+  background-color: var(--background-color) !important;
+  color: var(--text-color) !important;
+  border: 2px solid var(--navicon-link-color-hover) !important;
 }
 
 /* ✅ Hover Effect */
 #dark-mode-toggle:hover {
-  background-color: var(--navicon-link-color-hover);
-  color: #fff;
+  background-color: var(--navicon-link-color-hover) !important;
+  color: #fff !important;
 }
+
 
 
