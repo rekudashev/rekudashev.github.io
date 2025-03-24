@@ -73,14 +73,15 @@ a:hover {
   color: var(--navicon-link-color-hover);
 }
 
-/* ✅ Base Button Style */
+//* ✅ Dark Mode Button Styling in Sidebar */
 #dark-mode-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  font-size: 14px;
   font-weight: bold;
+  text-align: center;
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
@@ -105,4 +106,5 @@ a:hover {
   background-color: var(--navicon-link-color-hover);
   color: #fff;
 }
+
 
