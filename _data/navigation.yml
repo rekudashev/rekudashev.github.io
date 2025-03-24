@@ -7,4 +7,6 @@ main:
     url: "/research/"
   - title: "CV"
     url: "/assets/files/CV_2025.pdf"
+  - title: "Photography"
+    url: "/gallery/"
 
