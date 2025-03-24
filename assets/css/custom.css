@@ -111,8 +111,7 @@ a:hover {
 }
 
 
-/* 🌞 Light Mode (Your Custom Contrast Skin) */
-:root {
+[data-theme="custom"] {
   --background-color: #ffffff;
   --text-color: #222;
   --primary-color: #8C1A0D;
@@ -121,7 +120,7 @@ a:hover {
   --sidebar-background-color: #ffffff;
 }
 
-/* 🌙 Dark Mode (Minimal Mistakes Built-in Theme) */
+/* 🌙 Dark Mode - Minimal Mistakes Built-in Theme */
 [data-theme="dark"] {
   --background-color: #181818;
   --text-color: #EAEAEA;
@@ -131,7 +130,7 @@ a:hover {
   --sidebar-background-color: #181818;
 }
 
-/* ✅ Apply Theme Colors */
+/* ✅ Apply Theme to Page */
 body {
   background-color: var(--background-color);
   color: var(--text-color);
@@ -152,10 +151,7 @@ body {
   color: var(--text-color);
 }
 
-/* ✅ Apply Smooth Transition */
+/* ✅ Smooth Theme Transition */
 .theme-transition {
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
-
-
-
