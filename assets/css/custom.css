@@ -72,3 +72,37 @@ a {
 a:hover {
   color: var(--navicon-link-color-hover);
 }
+
+/* ✅ Base Button Style */
+#dark-mode-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+/* 🌞 Light Mode Button */
+:root #dark-mode-toggle {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 2px solid var(--navicon-link-color-hover);
+}
+
+/* 🌙 Dark Mode Button */
+[data-theme="dark"] #dark-mode-toggle {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 2px solid var(--navicon-link-color-hover);
+}
+
+/* ✅ Hover Effect */
+#dark-mode-toggle:hover {
+  background-color: var(--navicon-link-color-hover);
+  color: #fff;
+}
+
