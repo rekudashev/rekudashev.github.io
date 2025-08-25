@@ -155,7 +155,3 @@ body {
 .theme-transition {
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
-
-.author__avatar img {
-  border-radius: 0 !important;
-}
