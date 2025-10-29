@@ -5,15 +5,15 @@
 /* Colors */
 $text-color: #222 !default; // Dark gray instead of pure black for better readability
 $muted-text-color: $text-color !default;
-$primary-color: #8C1A0D !default; // Darker red for a more balanced feel
-$border-color: mix(#8C1A0D, $text-color, 75%) !default;
-$footer-background-color: #8C1A0D !default;
-$link-color: #BF2C1A !default; // Brighter red for better visibility
-//$link-color: #1E90FF !default; // Alternative: Blue for improved link recognition
+$primary-color: #060D46 !default; // Darker red for a more balanced feel
+$border-color: mix(#060D46, $text-color, 75%) !default;
+$footer-background-color: #060D46 !default;
+$link-color: #1E90FF !default; // Brighter red for better visibility
+//$link-color: #BF2C1A !default; // Alternative: Blue for improved link recognition
 
 $masthead-link-color: $text-color !default;
 $masthead-link-color-hover: $text-color !default;
-$navicon-link-color-hover: mix(#8C1A0D, $text-color, 80%) !default;
+$navicon-link-color-hover: mix(#060D46, $text-color, 80%) !default;
 
 /* Contrast Syntax Highlighting (Base16) */
 $base00: #000000 !default;
