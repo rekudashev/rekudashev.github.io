@@ -20,6 +20,7 @@ permalink: /research/
 
 #### **Welfare Effects of Congestion in Luxembourg and the Greater Region**  
 *Raian Kudashev, Pierre Picard*  
+
 [Link](https://hdl.handle.net/10993/66092)  
 <details>
   <summary>Abstract</summary>
@@ -30,6 +31,7 @@ permalink: /research/
 
 #### **Trading Miles for Rents: A Radiation Model of Cross-Border Commuting and Residential Location**  
 *Michał Burzyński, Raian Kudashev, Bertrand Verheyden*  
+
 <details>
   <summary>Abstract</summary>
   <p>
