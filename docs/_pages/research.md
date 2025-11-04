@@ -7,7 +7,8 @@ permalink: /research/
 ### **Work in Progress**
 
 #### **Land Rent Discontinuities and Taxation in the Cross-Border Commuting Region** 
-*Raian Kudashev, Pierre Picard*  
+*Raian Kudashev, Pierre Picard*
+Revise and Resubmit: **Journal of Urban Economics.**
 [Link](https://hdl.handle.net/10993/66030)  
 <details>
   <summary>Abstract</summary>
