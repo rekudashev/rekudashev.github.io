@@ -7,7 +7,7 @@ recent_posts: false
 
 Hello, and welcome to my website!
 
-I am a postdoctoral researcher at the Department of Spatial Economics at VU Amsterdam. 
+I am a postdoctoral researcher at the Department of Spatial Economics at VU Amsterdam and a candidate fellow at the Tinbergen Institute.
 
 My research focuses on structural urban economics, using quantitative spatial urban models to study the economic impacts of cross-border labor mobility and taxation on housing markets, labor market outcomes, and individual well-being.
 
