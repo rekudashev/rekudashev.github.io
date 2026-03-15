@@ -10,11 +10,11 @@ permalink: /research/
 }
 
 .meta {
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 details summary {
-  font-size: 0.9em;
+  font-size: 0.8em;
   font-weight: normal;
   cursor: pointer;
   list-style: none;
@@ -25,7 +25,7 @@ details summary::-webkit-details-marker {
 }
 
 details p {
-  font-size: 0.9em;
+  font-size: 0.8em;
   margin: 0.4em 0 0.8em 0;
 }
 </style>
