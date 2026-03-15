@@ -5,19 +5,28 @@ permalink: /research/
 ---
 
 <style>
-summary {
-  font-size: 0.9em;
-  cursor: pointer;
-}
-details p {
-  font-size: 0.9em;
-  margin: 0.4em 0 0.8em 0;
-}
 .paper-entry {
   margin-bottom: 1.2em;
 }
+
 .meta {
   font-size: 0.9em;
+}
+
+details summary {
+  font-size: 0.9em;
+  font-weight: normal;
+  cursor: pointer;
+  list-style: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details p {
+  font-size: 0.9em;
+  margin: 0.4em 0 0.8em 0;
 }
 </style>
 
@@ -59,7 +68,19 @@ This paper studies the effects of congestion relief in a spatial general equilib
 
 <div class="paper-entry">
 <strong>Parking in General Equilibrium</strong><br>
-<span class="meta">Tijl Hendrich, Hans Koster, Jos van Ommeren, Raian Kudashev</span>
+<span class="meta">Tijl Hendrich, Hans Koster, Raian Kudashev, Jos van Ommeren</span>
+</div>
+
+<div class="paper-entry">
+<strong>Trading Miles for Rents: A Radiation Model of Cross-Border Commuting and Residential Location</strong><br>
+<span class="meta">Michał Burzyński, Raian Kudashev, Bertrand Verheyden</span>
+
+<details>
+<summary>Abstract</summary>
+<p>
+We develop a spatial general equilibrium model of commuting that embeds a radiation-style sequential job search within a framework featuring endogenous wages, amenities, and a density-dependent disamenity. Calibrated to granular data from Luxembourg and its cross-border region, the model captures heterogeneous mobility responses across occupations and countries. Counterfactual congestion relief shows that reductions in commuting times can increase both wages and employment when the expansion of the opportunity set intensifies competition for labor. The framework combines the tractability of quantitative spatial models with a frictional labor market structure suitable for evaluating transportation–labor market interactions in integrated regions.
+</p>
+</details>
 </div>
 
 ### Policy
