@@ -4,6 +4,7 @@ title: ""
 permalink: /research/
 ---
 
+
 <style>
 .paper-entry {
   margin-bottom: 1.2em;
@@ -25,11 +26,11 @@ details summary::-webkit-details-marker {
 }
 
 details p {
-  font-size: 0.8em;
+  font-size: 0.8em !important;
   margin: 0.4em 0 0.8em 0;
+  line-height: 1.35;
 }
 </style>
-
 ### Working Papers
 
 <div class="paper-entry">
