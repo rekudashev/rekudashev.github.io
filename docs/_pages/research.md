@@ -33,7 +33,7 @@ details p {
 ### Working Papers
 
 <div class="paper-entry">
-<strong>Land Rent Discontinuities and Taxation in the Cross-Border Commuting Region</strong><br>
+<strong>Floorspace Price Discontinuities and Taxation in the Cross-Border Commuting Region</strong><br>
 <span class="meta">Raian Kudashev, Pierre M. Picard</span><br>
 <span class="meta"><em>Conditionally accepted by the <strong>Journal of Urban Economics</strong></em></span><br>
 <span class="meta"><a href="https://hdl.handle.net/10993/66030">Link</a></span>
