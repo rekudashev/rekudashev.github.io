@@ -148,7 +148,7 @@ footer strong{color:var(--ink)}
 .sitebar a{color:var(--ink);text-decoration:none}.sitebar a:hover{color:var(--accent-dark)}
 .site-title{font-weight:700;font-size:1.05rem}.site-links{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:.95rem}
 .site-links a[aria-current="page"]{box-shadow:inset 0 -2px 0 var(--accent)}
-.byline{font-size:.82rem!important;color:var(--muted)}.byline a,footer a{color:var(--accent-dark)}
+.byline{font-size:.82rem!important;color:var(--muted)}.byline a,footer a,#subtitle a{color:var(--accent-dark)}
 .refs{margin:0 0 10px;padding-left:1.2em}.refs li{margin:0 0 6px}
 .seg{display:inline-flex;border:1px solid var(--input-line);border-radius:2px;overflow:hidden;min-height:41px;width:100%}
 .seg button{flex:1;background:var(--input-bg);border:0;padding:0 10px;font-size:.84rem;font-weight:700;color:var(--muted);cursor:pointer}
@@ -619,7 +619,7 @@ $("dl-wide").addEventListener("click",()=>{ const L=[[...idHead(),"own_sales_ban
 
 // ---------- text ----------
 const M=DATA.meta;
-$("subtitle").textContent=`Mix-adjusted price of an apartment with sample-average characteristics, by commune or cadastral section, ${Y0}–${Y1}. Estimated from ${fmt0.format(M.n_sales)} registered apartment sales with the AHS method.`;
+$("subtitle").innerHTML=`Mix-adjusted price of an apartment with sample-average characteristics, by commune or cadastral section, ${Y0}–${Y1}. Estimated from ${fmt0.format(M.n_sales)} registered apartment sales with the AHS method of <a href="https://doi.org/10.1016/j.regsciurbeco.2022.103836">Ahlfeldt, Heblich &amp; Seidel (2023)</a>.`;
 if(M.site_nav && M.site_nav.length){ $("site-title").textContent=M.site_title||""; $("site-title").href=M.home_url||"#";
   $("site-links").innerHTML=M.site_nav.map(n=>`<a href="${esc(n.url)}"${n.current?' aria-current="page"':""}>${esc(n.title)}</a>`).join(""); $("sitebar").hidden=false; }
 if(M.byline){ $("byline").innerHTML=M.byline; $("byline").hidden=false; }
