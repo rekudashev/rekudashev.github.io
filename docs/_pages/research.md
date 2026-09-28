@@ -31,13 +31,13 @@ details p {
   line-height: 1.35;
 }
 </style>
-### Working Papers
+### Publications
 
 <div class="paper-entry">
-<strong>Floorspace Price Discontinuities and Taxation in the Cross-Border Commuting Region</strong><br>
+<strong>Floorspace Price Discontinuities and Taxation in Cross-Border Commuting Areas</strong><br>
 <span class="meta">Raian Kudashev, Pierre M. Picard</span><br>
-<span class="meta"><em>Conditionally accepted by the <strong>Journal of Urban Economics</strong></em></span><br>
-<span class="meta"><a href="https://hdl.handle.net/10993/66030">Link</a> · <a href="/luxembourg-atlas/">Interactive price atlas</a></span>
+<span class="meta"><em><strong>Journal of Urban Economics</strong></em>, 2026, 155, 103904</span><br>
+<span class="meta"><a href="https://doi.org/10.1016/j.jue.2026.103904">Published version</a> · <a href="https://hdl.handle.net/10993/66030">Working paper</a> · <a href="/luxembourg-atlas/">Interactive price atlas</a></span>
 
 <details>
 <summary>Abstract</summary>
@@ -46,6 +46,8 @@ Cross-border housing markets have become increasingly common in Europe following
 </p>
 </details>
 </div>
+
+### Working Papers
 
 <div class="paper-entry">
 <strong>Welfare Effects of Congestion in Luxembourg and the Greater Region</strong><br>
