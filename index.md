@@ -56,7 +56,7 @@ recent_posts: false
   <div class="home-card-body">
     <p class="home-kicker">Interactive tool</p>
     <h2>Luxembourg Apartment Price Atlas</h2>
-    <p>Apartment price indices for Luxembourg's communes and cadastral sections, built with the Ahlfeldt, Heblich &amp; Seidel (2023) method from land-registry sales, together with an interactive regression-discontinuity view of the price jump at the Luxembourg–Germany border.</p>
+    <p>Apartment price indices for Luxembourg's communes and cadastral sections, built with the Ahlfeldt, Heblich &amp; Seidel (2023) method from land-registry sales, together with an interactive view of the price jump at the Luxembourg–Germany border.</p>
     <dl class="home-facts">
       <div><dt>Period</dt><dd>2007–2021</dd></div>
       <div><dt>Communes</dt><dd>102</dd></div>
