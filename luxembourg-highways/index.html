@@ -7,6 +7,8 @@
 <script>(function(){try{var t=localStorage.getItem("rk-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <title>Doubling Luxembourg's Highways</title>
 <meta name="description" content="Interactive companion to Kudashev and Picard, Welfare Effects of Congestion in Luxembourg and the Greater Region: willingness to pay, traffic, speeds and vehicle-kilometres when Luxembourg's highway capacity doubles.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap">
 <style>
 :root{
   --ink:#1f1e1c; --muted:#66625c; --faint:#9a958c; --paper:#ffffff; --panel:#ffffff; --soft:#f6f3ee; --line:#e4e0d8; --grid:#ece8e0;
@@ -68,9 +70,9 @@ a{color:var(--accent-dark)}
 
 /* site bar */
 .sitebar{border-bottom:1px solid var(--line)}
-.sitebar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px 22px;padding-top:12px;padding-bottom:12px}
+.sitebar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 24px;padding-top:14px;padding-bottom:14px}
 .sitebar a{color:var(--ink);text-decoration:none}.sitebar a:hover{color:var(--accent-dark)}
-.brand{font-weight:900}.sitelinks{display:flex;flex-wrap:wrap;align-items:center;gap:4px 20px;font-size:.93rem}
+.brand{font-weight:900;font-size:17.85px;letter-spacing:.01em}.sitelinks{display:flex;flex-wrap:wrap;align-items:center;gap:4px 22px;font-size:16.15px}
 /* Dashboards drop-down in the site header */
 .navdd{position:relative;margin:0;display:inline-block}
 .navdd>summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:0;padding:2px 0;color:var(--ink);font-size:inherit;font-weight:inherit;user-select:none}
@@ -221,7 +223,11 @@ section.block .lead{margin:0 0 16px;max-width:52em;color:var(--muted)}
 .credits{padding:34px 0 50px;font-size:.86rem;color:var(--muted)}
 .credits h2{font-size:1.05rem;color:var(--ink);margin:0 0 6px}
 .credits p{margin:0 0 8px;max-width:62em}
-.credits ul{margin:0 0 10px;padding-left:1.2em;max-width:62em}
+.credits ul{margin:0 0 10px;padding-left:1.2em;max-width:62em;font-size:1rem;color:var(--ink)}
+.credits li{margin:0 0 4px}
+.scnnote{margin:12px 0 0;max-width:62em;font-size:1.05rem;line-height:1.5;color:var(--ink)}
+.scnnote b{font-weight:900}
+@media (max-width:680px){.scnnote{font-size:1rem}}
 
 #tip{position:fixed;z-index:50;pointer-events:none;background:var(--tip-bg);color:var(--tip-ink);font-size:.8rem;line-height:1.35;padding:6px 9px;border-radius:3px;max-width:260px;opacity:0;transition:opacity .12s}
 #tip b{font-weight:900}
@@ -299,7 +305,7 @@ section.block .lead{margin:0 0 16px;max-width:52em;color:var(--muted)}
 <main class="wrap">
   <div class="tiles" id="tiles"></div>
   <p class="warn" id="openwarn" hidden>In the open city, expected utility is pinned to the outside option and total population adjusts instead, so its compensating variation is not a welfare measure. Its willingness-to-pay values are shown for completeness only.</p>
-  <p class="note" id="scnnote"></p>
+  <p class="scnnote" id="scnnote"></p>
 
   <section class="block" id="mapsec">
     <h2 id="maptitle">Map</h2>
@@ -388,7 +394,7 @@ function bn(v){ return (v > 0.0005 ? "+" : v < -0.0005 ? MINUS : "") + "€" + n
 const rowsBy = (rows, key, val) => rows.filter(r => String(r[key]) === val);
 const one = (rows, s) => rows.find(r => String(r.scenario) === s);
 document.getElementById("paperlink").href = M.paper_url;
-$("builtline").textContent = "Built " + M.built + " from the saved counterfactual outputs. The page works offline and makes no network requests.";
+$("builtline").textContent = "Built " + M.built + " from the saved counterfactual outputs. Apart from the Lato web font, the page works offline and makes no network requests.";
 
 /* ---------------- state ---------------- */
 const st = { s: "E", layer: "wtp", mark: true, sel: null };
@@ -469,7 +475,7 @@ function tiles(){
     E: "Closed city: residents can also move within the region, with total population fixed. This is the paper's preferred welfare benchmark.",
     F: "Open city: the region's population grows until utility returns to the outside option."
   };
-  $("scnnote").textContent = notes[s];
+  const cut = notes[s].indexOf(":"); $("scnnote").innerHTML = s === "0" ? notes[s] : "<b>" + notes[s].slice(0, cut + 1) + "</b>" + notes[s].slice(cut + 1);
 }
 
 /* ---------------- map ---------------- */
