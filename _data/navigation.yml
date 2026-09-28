@@ -5,6 +5,8 @@ main:
     url: "https://rekudashev.github.io/"
   - title: "Research"
     url: "/research/"
+  - title: "Price atlas"
+    url: "/luxembourg-atlas/"
   - title: "CV"
     url: "/assets/files/CV_2025.pdf"
  
