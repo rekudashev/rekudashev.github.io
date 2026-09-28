@@ -17,7 +17,11 @@
       <a href="/">Home</a>
       <a href="/research/" aria-current="page">Research</a>
       <a href="/teaching/">Teaching</a>
-      <a href="/luxembourg-atlas/">Price atlas</a>
+      <details class="navdd"><summary>Dashboards</summary><div class="navdd-menu">
+        <a href="/luxembourg-atlas/">Luxembourg price atlas<small>Apartment prices by commune and cadastral section, 2007–2021</small></a>
+        <a href="/luxembourg-highways/">Doubling Luxembourg's highways<span class="beta">Beta</span><small>Willingness to pay, traffic and tax revenue</small></a>
+        <a class="all" href="/dashboards/">All dashboards →</a>
+      </div></details>
       <a href="/assets/files/CV_Kudashev.pdf">CV</a>
     </nav>
   </div>
@@ -55,7 +59,7 @@
         <li class="paper">
           <h3><a href="https://hdl.handle.net/10993/66092">Welfare Effects of Congestion in Luxembourg and the Greater Region</a></h3>
           <p class="authors">with Pierre M. Picard</p>
-          <div class="links"><a href="https://hdl.handle.net/10993/66092">Working paper</a></div>
+          <div class="links"><a href="https://hdl.handle.net/10993/66092">Working paper</a><a href="/luxembourg-highways/">Interactive dashboard: doubling Luxembourg's highways<span class="beta">Beta</span></a></div>
           <details>
             <summary>Abstract</summary>
             <p>This paper studies the effects of congestion relief in a spatial general equilibrium model of Luxembourg and its cross-border commuting region. Using traffic speed data, we implement a difference-in-differences design on Luxembourg’s highways to measure congestion severity and identify choke points. Counterfactual simulations set highway speeds to free-flow levels and quantify resulting changes in output, welfare, and fiscal revenues. Economic output increases in Luxembourg City and Esch, while other cities lose production but gain in resident welfare. For residents of Luxembourg City, the short-run welfare effect is estimated at −EUR 1,140 per person per year, which becomes +EUR 3,490 in the long run after population reallocation. When migration from the outside economy is allowed, the welfare effect turns negative at −EUR 8,110 per person per year. Eliminating congestion generates fiscal gains of EUR 2.50 billion annually in the short run, EUR 1.18 billion in the long run, and EUR 7.04 billion when migration inflows are considered.</p>
@@ -97,6 +101,12 @@
           <p class="status">Apartment price indices for Luxembourg's communes and cadastral sections, 2007–2021, built with the Ahlfeldt, Heblich &amp; Seidel (2023) method, and the price jump at the Luxembourg–Germany border.</p>
           <div class="links"><a href="/luxembourg-atlas/">Open the atlas</a></div>
         </li>
+        <li class="paper">
+          <h3><a href="/luxembourg-highways/">Doubling Luxembourg's Highways</a><span class="badge">Beta</span></h3>
+          <p class="authors">with Pierre M. Picard</p>
+          <p class="status">Willingness to pay, traffic, speeds, vehicle-kilometres and tax revenue when highway capacity inside Luxembourg doubles, under four ways the economy can adjust. A companion to the congestion paper; it will be updated as the paper develops.</p>
+          <div class="links"><a href="/luxembourg-highways/">Open the dashboard</a></div>
+        </li>
       </ol>
     </div>
   </div>
@@ -108,5 +118,10 @@
     <span>Department of Spatial Economics, Vrije Universiteit Amsterdam · De Boelelaan 1105, 1081 HV Amsterdam · <a href="mailto:r.kudashev@vu.nl">r.kudashev@vu.nl</a> · <a href="https://twitter.com/rekudashev">@rekudashev</a></span>
   </div>
 </footer>
+<script>
+(function(){var dd=document.querySelectorAll(".navdd");if(!dd.length)return;
+document.addEventListener("click",function(e){dd.forEach(function(d){if(d.open&&!d.contains(e.target))d.open=false;});});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")dd.forEach(function(d){if(d.open){d.open=false;d.querySelector("summary").focus();}});});})();
+</script>
 </body>
 </html>
