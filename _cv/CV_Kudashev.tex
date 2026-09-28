@@ -1,0 +1,135 @@
+% CV of Raian Kudashev — compile with XeLaTeX (fonts are in ./fonts, no system install needed):
+%   xelatex CV_Kudashev.tex
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,top=17mm,bottom=17mm,left=17mm,right=17mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Lato}[
+  Path=./fonts/, Extension=.ttf,
+  UprightFont=*-Regular, ItalicFont=*-Italic,
+  BoldFont=*-Bold, BoldItalicFont=*-BoldItalic,
+  Numbers=Lining]
+\newfontface\blackface{Lato-Black}[Path=./fonts/, Extension=.ttf]
+\usepackage{xcolor}
+\usepackage{calc}
+\definecolor{ink}{HTML}{1F1E1C}
+\definecolor{muted}{HTML}{6B665E}
+\definecolor{accent}{HTML}{857251}
+\definecolor{accentdark}{HTML}{65523A}
+\definecolor{rule}{HTML}{DAD4C9}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Raian Kudashev - Curriculum Vitae},pdfauthor={Raian Kudashev}}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\color{ink}
+\linespread{1.08}
+
+% ---------- layout: label column on the left, content on the right ----------
+\newlength{\labelw}\setlength{\labelw}{34mm}
+\leftskip=\labelw
+\newcommand{\cvsection}[1]{%
+  \par\vspace{8.5pt}\penalty-200
+  {\leftskip=0pt\noindent\textcolor{rule}{\rule{\textwidth}{0.5pt}}\par}\vspace{5.5pt}\nobreak
+  \noindent\hspace*{-\labelw}\makebox[\labelw][l]{\smash{\parbox[t]{\labelw-6mm}{\raggedright\fontsize{7.6}{9.6}\selectfont\bfseries\addfontfeatures{LetterSpace=12}\textcolor{accent}{\MakeUppercase{#1}}\strut}}}\ignorespaces}
+\newcommand{\when}[1]{\hfill{\color{muted}#1}}
+% one-line entry: bold head, light detail, date on the right
+\newcommand{\entry}[3]{\textbf{#1}\ifx&#2&\else\ {\color{muted}·}\ #2\fi\when{#3}\par\vspace{2.2pt}}
+\newcommand{\talk}[2]{#1\when{#2}\par\vspace{2.2pt}}
+% paper: title (linked), coauthors, status line, links
+\newcommand{\paper}[4]{%
+  {\bfseries #1}\par
+  \ifx&#2&\else{\color{muted}#2}\par\fi
+  \ifx&#3&\else#3\par\fi
+  \ifx&#4&\else{\small\color{accentdark}#4}\par\fi
+  \vspace{5pt}}
+\newcommand{\lnk}[2]{\href{#1}{#2}}
+\newcommand{\sep}{\ {\color{muted}·}\ }
+
+\begin{document}
+
+% ---------- header ----------
+{\leftskip=0pt
+\noindent{\fontsize{27}{30}\selectfont\blackface Raian Kudashev}\par\vspace{5pt}
+\noindent{\fontsize{10.5}{13}\selectfont Postdoctoral Researcher, Department of Spatial Economics, Vrije Universiteit Amsterdam}\par\vspace{3pt}
+\noindent{\color{muted}De Boelelaan 1105, 1081 HV Amsterdam, The Netherlands\sep
+\href{mailto:r.kudashev@vu.nl}{\color{accentdark}r.kudashev@vu.nl}\sep
+\href{https://rekudashev.github.io}{\color{accentdark}rekudashev.github.io}}\par
+\vspace{4pt}
+}
+
+\cvsection{Positions}
+\entry{Vrije Universiteit Amsterdam}{Postdoctoral Researcher, Spatial Economics}{2025--}
+\entry{Tinbergen Institute}{Candidate Fellow}{2025--}
+
+\cvsection{Education}
+\entry{University of Luxembourg}{PhD in Economics}{2021--2025}
+\entry{University of Luxembourg}{MSc in Quantitative Economics and Finance}{2020--2021}
+\entry{Higher School of Economics}{MA in Economics: Research Track}{2019--2021}
+\entry{Higher School of Economics}{BA in Mathematics}{2015--2019}
+
+\cvsection{Research interests}
+\textbf{Primary:} Urban Economics, Transportation Economics\par\vspace{2.2pt}
+\textbf{Secondary:} Economics of Migration, Public Economics\par
+
+\cvsection{Publications}
+\paper{\lnk{https://doi.org/10.1016/j.jue.2026.103904}{Floorspace Price Discontinuities and Taxation in Cross-Border Commuting Areas}}
+      {with Pierre M. Picard}
+      {\textit{Journal of Urban Economics}, 2026, 155, 103904}
+      {\lnk{https://doi.org/10.1016/j.jue.2026.103904}{Published version}\sep\lnk{https://hdl.handle.net/10993/66030}{Working paper}\sep\lnk{https://rekudashev.github.io/luxembourg-atlas/}{Interactive price atlas}}
+
+\cvsection{Working papers}
+\paper{\lnk{https://hdl.handle.net/10993/66092}{Welfare Effects of Congestion in Luxembourg and the Greater Region}}
+      {with Pierre M. Picard}{}{}
+
+\cvsection{Work in progress}
+\paper{Environmental Costs of Congestion Displacement: A General Equilibrium Approach}{}{}{}
+\paper{Parking in General Equilibrium}{with Tijl Hendrich, Hans Koster, and Jos van Ommeren}{}{}
+
+\cvsection{Policy work}
+\paper{\lnk{https://liser.elsevierpure.com/ws/portalfiles/portal/78408652/policy-brief_17_v3.pdf}{Traffic Congestion in Luxembourg: Implications for Labour and Housing Markets}}
+      {with Michał Burzyński and Bertrand Verheyden}{LISER Policy Brief}{}
+
+\cvsection{Data and tools}
+\paper{\lnk{https://rekudashev.github.io/luxembourg-atlas/}{Luxembourg Apartment Price Atlas}}
+      {with Pierre M. Picard}
+      {Apartment price indices for Luxembourg's communes and cadastral sections, 2007--2021}{}
+
+\cvsection{Awards and grants}
+\entry{University of Luxembourg}{Research Award}{2025}
+\entry{Economist Club Luxembourg}{Best Master Thesis Award}{2021}
+\entry{Ministry of Foreign Affairs of Luxembourg}{Mobility Grant}{2020--2021}
+\entry{Higher School of Economics}{Academic Stipend}{2019--2021}
+
+\cvsection{Presentations}
+\talk{6th Meeting on Transport Economics and Infrastructure}{2026}
+\talk{EUREKA Seminar, Vrije Universiteit Amsterdam}{2025}
+\talk{LISER Junior Seminar; Junior DEM Seminar, University of Luxembourg}{2024}
+\talk{12th UEA European Meeting; ZEW Taxation and Mobility Workshop}{2023}
+
+\cvsection{Teaching}
+\entry{Vrije Universiteit Amsterdam}{Urban Economic Challenges and Policies (Lecturer)}{2026--}
+\entry{Vrije Universiteit Amsterdam}{Urban Economics and Real Estate (Lecturer)}{2025--}
+\entry{University of Luxembourg}{Urban and Regional Economics (TA)}{2024--2025}
+\entry{University of Luxembourg}{Applied General Equilibrium Theory (TA)}{2023--2025}
+\entry{University of Luxembourg}{Industrial Economics (TA)}{2023}
+\entry{Higher School of Economics}{Advanced Microeconomics: Game Theory (TA)}{2021}
+
+\cvsection{Skills}
+\textbf{Software:} R, Python, Matlab, Stata, QGIS\par\vspace{2.2pt}
+\textbf{Languages:} Russian (native), English (C2), German (B2), French (B2), Luxembourgish (B1)\par
+
+\cvsection{References}
+\begingroup\leftskip=\labelw
+\begin{minipage}[t]{0.31\linewidth-0.31\labelw}\raggedright
+\textbf{Pierre M. Picard}\\ Full Professor in Microeconomics\\ University of Luxembourg\\ \href{mailto:pierre.picard@uni.lu}{\color{accentdark}pierre.picard@uni.lu}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.31\linewidth-0.31\labelw}\raggedright
+\textbf{Gabriel Ahlfeldt}\\ Full Professor, Chair of Econometrics\\ Humboldt University of Berlin\\ \href{mailto:g.ahlfeldt@lse.ac.uk}{\color{accentdark}g.ahlfeldt@lse.ac.uk}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.31\linewidth-0.31\labelw}\raggedright
+\textbf{Frédéric Docquier}\\ Deputy Director\\ LISER\\ \href{mailto:frederic.docquier@liser.lu}{\color{accentdark}frederic.docquier@liser.lu}
+\end{minipage}\par
+\endgroup
+
+\vfill
+{\leftskip=0pt\noindent\color{muted}\footnotesize Last updated: September 2026}
+\end{document}
