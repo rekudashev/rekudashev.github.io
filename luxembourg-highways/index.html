@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<script>(function(){try{var t=localStorage.getItem("rk-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <title>Doubling Luxembourg's Highways</title>
 <meta name="description" content="Interactive companion to Kudashev and Picard, Welfare Effects of Congestion in Luxembourg and the Greater Region: willingness to pay, traffic, speeds and vehicle-kilometres when Luxembourg's highway capacity doubles.">
 <style>
@@ -19,7 +21,7 @@
   --shadow:0 6px 22px rgba(31,30,28,.08);
 }
 @media (prefers-color-scheme: dark){
-  :root{
+  :root:not([data-theme="light"]){
     --ink:#ece9e3; --muted:#a8a298; --faint:#77726a; --paper:#161514; --panel:#1d1c1a; --soft:#22211e; --line:#34322e; --grid:#2c2a27;
     --accent:#c9ad7f; --accent-dark:#dcc39a; --accent-soft:rgba(201,173,127,.16);
     --road:#45423c; --land:#1f1e1c; --land-lu:#27251f; --border-ink:#e8e2d6; --halo:rgba(236,233,227,.4);
@@ -32,6 +34,29 @@
     --shadow:0 6px 22px rgba(0,0,0,.35);
   }
 }
+:root[data-theme="dark"]{
+    --ink:#ece9e3; --muted:#a8a298; --faint:#77726a; --paper:#161514; --panel:#1d1c1a; --soft:#22211e; --line:#34322e; --grid:#2c2a27;
+    --accent:#c9ad7f; --accent-dark:#dcc39a; --accent-soft:rgba(201,173,127,.16);
+    --road:#45423c; --land:#1f1e1c; --land-lu:#27251f; --border-ink:#e8e2d6; --halo:rgba(236,233,227,.4);
+    --r1:#3d352a; --r2:#62523c; --r3:#8f7856; --r4:#b89c6f; --r5:#e8cf9e;
+    --p1:#4a3d2c; --p2:#7a6242; --p3:#b08d5c; --p4:#e3c48f;
+    --n1:#1f3350; --n2:#2e5585; --n3:#3f7fc9; --n4:#8fbaf0;
+    --zero:#2c2a27;
+    --s1:#5b4a33; --s2:#8a7150; --s3:#b99a6c; --s4:#e3c794;
+    --tip-bg:rgba(245,242,236,.97); --tip-ink:#1b1a18;
+    --shadow:0 6px 22px rgba(0,0,0,.35);
+}
+/* theme switch */
+:root{color-scheme:light}
+:root[data-theme="dark"]{color-scheme:dark}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){color-scheme:dark}}
+.theme{display:inline-flex;align-items:stretch;border:1px solid var(--line);border-radius:3px;overflow:hidden;vertical-align:middle}
+.theme button{width:30px;height:26px;display:grid;place-items:center;background:transparent;border:0;color:var(--muted);cursor:pointer;padding:0;font:inherit}
+.theme button+button{border-left:1px solid var(--line)}
+.theme button:hover{color:var(--ink);background:var(--soft)}
+.theme button[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent-dark)}
+.theme button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.theme svg{width:15px;height:15px;display:block}
 *{box-sizing:border-box}
 html{background:var(--paper);color:var(--ink);font-family:Lato,"Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.55}
 body{margin:0;background:var(--paper)}
@@ -237,6 +262,8 @@ section.block .lead{margin:0 0 16px;max-width:52em;color:var(--muted)}
       <a class="all" href="https://rekudashev.github.io/dashboards/">All dashboards →</a>
     </div></details>
     <a href="https://rekudashev.github.io/assets/files/CV_Kudashev.pdf">CV</a>
+    <span class="theme" role="group" aria-label="Colour theme"><button type="button" data-theme-set="auto" title="Match system" aria-label="Match system theme"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 2.5a5.5 5.5 0 0 1 0 11z" fill="currentColor"/></svg></button><button type="button" data-theme-set="light" title="Light" aria-label="Light theme"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6L13 13M3 13l1.4-1.4M11.6 4.4L13 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button><button type="button" data-theme-set="dark" title="Dark" aria-label="Dark theme"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 10.2A5.8 5.8 0 0 1 5.8 2.5a5.8 5.8 0 1 0 7.7 7.7z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></button></span>
+
   </nav>
 </div></header>
 
@@ -758,12 +785,21 @@ render();
 requestAnimationFrame(() => { fitVB(); });
 let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { const c = [vb[0] + vb[2]/2, vb[1] + vb[3]/2]; vb[3] = vb[2] * svg.clientHeight / Math.max(svg.clientWidth, 1); vb[0] = c[0] - vb[2]/2; vb[1] = c[1] - vb[3]/2; setVB(); }, 120); });
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { readCols(); render(); });
+document.addEventListener("themechange", () => { readCols(); render(); });
 })();
 </script>
 <script>
 (function(){var dd=document.querySelectorAll(".navdd");if(!dd.length)return;
 document.addEventListener("click",function(e){dd.forEach(function(d){if(d.open&&!d.contains(e.target))d.open=false;});});
 document.addEventListener("keydown",function(e){if(e.key==="Escape")dd.forEach(function(d){if(d.open){d.open=false;d.querySelector("summary").focus();}});});})();
+</script>
+<script>
+(function(){var root=document.documentElement,K="rk-theme";
+function cur(){try{var t=localStorage.getItem(K);return t==="light"||t==="dark"?t:"auto";}catch(e){return "auto";}}
+function mark(t){document.querySelectorAll("[data-theme-set]").forEach(function(b){b.setAttribute("aria-pressed",String(b.getAttribute("data-theme-set")===t));});}
+function apply(t){if(t==="light"||t==="dark")root.setAttribute("data-theme",t);else root.removeAttribute("data-theme");try{localStorage.setItem(K,t);}catch(e){}mark(t);document.dispatchEvent(new CustomEvent("themechange",{detail:t}));}
+document.querySelectorAll("[data-theme-set]").forEach(function(b){b.addEventListener("click",function(){apply(b.getAttribute("data-theme-set"));});});
+mark(cur());})();
 </script>
 </body>
 </html>

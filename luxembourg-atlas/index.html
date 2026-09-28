@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<script>(function(){try{var t=localStorage.getItem("rk-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <title>Luxembourg Apartment Price Atlas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap">
@@ -439,7 +441,7 @@ const selUnit = () => G().byId[state.sel[state.geo]];
 function applyTheme(t){
   if(t==="auto") document.documentElement.removeAttribute("data-theme"); else document.documentElement.setAttribute("data-theme",t);
   document.querySelectorAll("[data-theme-btn]").forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.themeBtn===t)));
-  try{ localStorage.setItem("lux-atlas-theme",t);}catch(e){}
+  try{ localStorage.setItem("rk-theme",t);}catch(e){}
   renderAll(); window.dispatchEvent(new Event("atlas-theme"));
 }
 const cssVar = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
@@ -669,7 +671,7 @@ if(M.references && M.references.length){ $("refs-list").innerHTML=M.references.m
 $("source-note").innerHTML=`<p><strong>Data.</strong> ${M.data_source}</p><p><strong>Method.</strong> ${M.method}</p><p><strong>Parameters.</strong> ${M.params}</p><p>Built ${M.built}. Boundaries: ${M.boundaries}. Average lines are unweighted means over all units of the chosen geography.</p>`;
 
 // init
-try{ const t=localStorage.getItem("lux-atlas-theme"); if(t){ document.querySelectorAll("[data-theme-btn]").forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.themeBtn===t))); if(t!=="auto") document.documentElement.setAttribute("data-theme",t); } }catch(e){}
+try{ const t=localStorage.getItem("rk-theme"); if(t){ document.querySelectorAll("[data-theme-btn]").forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.themeBtn===t))); if(t!=="auto") document.documentElement.setAttribute("data-theme",t); } }catch(e){}
 fillFinder(); applyZoom(); renderAll();
 })();
 </script>
