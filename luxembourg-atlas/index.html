@@ -464,10 +464,24 @@ function placeCities(){ const u=upp()/state.k; cities.forEach(({ct,c,t})=>{ c.se
 function applyZoom(){ zoomG.setAttribute("transform",`translate(${state.tx} ${state.ty}) scale(${state.k})`); placeCities(); }
 function svgPoint(ev){ const pt=svg.createSVGPoint(); pt.x=ev.clientX; pt.y=ev.clientY; return pt.matrixTransform(svg.getScreenCTM().inverse()); }
 svg.addEventListener("wheel",ev=>{ ev.preventDefault(); const p=svgPoint(ev), k0=state.k, k1=Math.max(1,Math.min(20,k0*Math.exp(-ev.deltaY*0.0015))); state.tx=p.x-(p.x-state.tx)*k1/k0; state.ty=p.y-(p.y-state.ty)*k1/k0; state.k=k1; if(k1===1){state.tx=0;state.ty=0;} applyZoom(); },{passive:false});
-let drag=null, moved=false;
-svg.addEventListener("pointerdown",ev=>{ drag={p:svgPoint(ev),tx:state.tx,ty:state.ty}; moved=false; });
-window.addEventListener("pointermove",ev=>{ if(!drag) return; const p=svgPoint(ev), dx=p.x-drag.p.x, dy=p.y-drag.p.y; if(Math.abs(dx)+Math.abs(dy)>2*upp()){ moved=true; $("map").classList.add("dragging"); hideTip(); } if(moved){ state.tx=drag.tx+dx; state.ty=drag.ty+dy; applyZoom(); } });
-window.addEventListener("pointerup",()=>{ drag=null; $("map").classList.remove("dragging"); setTimeout(()=>moved=false,0); });
+const TOUCH=matchMedia("(pointer: coarse)").matches;
+let drag=null, moved=false, pinch=null; const ptrs=new Map();
+// two-finger pinch: keep the map point under the fingers' midpoint fixed while scaling
+function pinchState(){ const [a,b]=[...ptrs.values()]; const mid={clientX:(a.x+b.x)/2, clientY:(a.y+b.y)/2}; return {mid:svgPoint(mid), dist:Math.hypot(a.x-b.x,a.y-b.y)}; }
+svg.addEventListener("pointerdown",ev=>{ ptrs.set(ev.pointerId,{x:ev.clientX,y:ev.clientY});
+  if(ptrs.size===2){ const s0=pinchState(); pinch={mid:s0.mid, dist:s0.dist||1, k:state.k, tx:state.tx, ty:state.ty}; drag=null; moved=true; hideTip(); }
+  else if(ptrs.size===1){ drag={p:svgPoint(ev),tx:state.tx,ty:state.ty}; moved=false; } });
+window.addEventListener("pointermove",ev=>{ if(ptrs.has(ev.pointerId)) ptrs.set(ev.pointerId,{x:ev.clientX,y:ev.clientY});
+  if(pinch && ptrs.size>=2){ const s1=pinchState(), k1=Math.max(1,Math.min(20,pinch.k*s1.dist/pinch.dist));
+    const wx=(pinch.mid.x-pinch.tx)/pinch.k, wy=(pinch.mid.y-pinch.ty)/pinch.k;
+    state.k=k1; state.tx=s1.mid.x-wx*k1; state.ty=s1.mid.y-wy*k1; if(k1===1){ state.tx=0; state.ty=0; } applyZoom(); return; }
+  if(!drag) return; const p=svgPoint(ev), dx=p.x-drag.p.x, dy=p.y-drag.p.y; if(Math.abs(dx)+Math.abs(dy)>2*upp()){ moved=true; $("map").classList.add("dragging"); hideTip(); } if(moved){ state.tx=drag.tx+dx; state.ty=drag.ty+dy; applyZoom(); } });
+function endPtr(ev){ ptrs.delete(ev.pointerId);
+  if(pinch && ptrs.size<2){ pinch=null; if(ptrs.size===1){ const [q]=[...ptrs.values()]; drag={p:svgPoint({clientX:q.x,clientY:q.y}),tx:state.tx,ty:state.ty}; } return; }
+  if(ptrs.size===0){ drag=null; $("map").classList.remove("dragging"); setTimeout(()=>moved=false,0); } }
+window.addEventListener("pointerup",endPtr); window.addEventListener("pointercancel",endPtr);
+// iOS Safari: stop the page itself from zooming when pinching the map
+svg.addEventListener("gesturestart",e=>e.preventDefault()); svg.addEventListener("gesturechange",e=>e.preventDefault());
 function zoomTo(id){ const p=paths[state.geo][id]; if(!p) return; const b=p.getBBox(), vb=DATA.shapes.viewBox; const k=Math.max(1,Math.min(state.geo==="section"?5:4, 0.3*Math.min(vb[2]/b.width, vb[3]/b.height))); state.k=k; state.tx=vb[0]+vb[2]/2-k*(b.x+b.width/2); state.ty=vb[1]+vb[3]/2-k*(b.y+b.height/2); applyZoom(); }
 $("reset-map").addEventListener("click",()=>{ state.k=1; state.tx=0; state.ty=0; applyZoom(); });
 
@@ -493,7 +507,7 @@ function renderMap(){
   g.units.forEach(u=>{ const p=paths[state.geo][u.id]; if(p){ p.setAttribute("fill", sc.color(val(u,state.year))); p.classList.toggle("selected", u.id===state.sel[state.geo]); } });
   const sp=paths[state.geo][state.sel[state.geo]]; if(sp) layers[state.geo].appendChild(sp);
   $("map-title").textContent = (state.mode==="level" ? `Price level in ${state.year}` : `Change ${state.base}–${state.year}`) + ` · by ${g.label.toLowerCase()}`;
-  $("map-hint").textContent = `Scroll to zoom · drag to pan · click a ${g.singular}`;
+  $("map-hint").textContent = TOUCH ? `Pinch to zoom · drag to pan · tap a ${g.singular}` : `Scroll to zoom · drag to pan · click a ${g.singular}`;
   $("map").setAttribute("aria-label", `Map of Luxembourg ${g.plural} coloured by apartment price`);
   const lg=$("legend"); lg.innerHTML="";
   const title=document.createElement("span"); title.className="legend-title";
