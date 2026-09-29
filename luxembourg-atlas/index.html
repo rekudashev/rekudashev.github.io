@@ -84,12 +84,12 @@ input[type="range"]{width:100%;accent-color:var(--accent)}
 .map-hint{position:absolute;left:0;bottom:4px;color:var(--muted);font-size:.72rem;pointer-events:none}
 .legend{display:flex;flex-wrap:wrap;align-items:flex-start;gap:14px;margin-top:6px;color:var(--muted);font-size:.72rem}
 .legend-title{font-weight:700;padding-top:1px}
-.legend-scale{display:grid;grid-template-columns:repeat(6,46px)}
+.legend{--lw:46px}
+.legend-box{margin:0 14px 0 10px}
+.legend-scale{display:grid;grid-template-columns:repeat(6,var(--lw))}
 .legend-scale .sw{height:10px;margin-right:2px}
-.legend-ticks{display:grid;grid-template-columns:repeat(6,46px);margin-top:3px}
-.legend-ticks span{font-variant-numeric:tabular-nums;transform:translateX(-50%);white-space:nowrap}
-.legend-ticks span:last-child{position:relative}
-.legend-ticks .end{position:absolute;left:46px;transform:translateX(-50%)}
+.legend-ticks{position:relative;width:calc(var(--lw)*6);height:1.35em;margin-top:3px}
+.legend-ticks span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap;font-variant-numeric:tabular-nums}
 .tooltip{position:fixed;z-index:30;pointer-events:none;background:var(--tip-bg);color:var(--tip-ink);border-radius:2px;padding:8px 10px;box-shadow:0 6px 24px rgba(0,0,0,.18);font-size:.78rem;line-height:1.45;max-width:260px}
 .tooltip .t-head{font-weight:700}
 .tooltip .t-val{font-variant-numeric:tabular-nums}
@@ -129,7 +129,7 @@ footer{max-width:1050px;margin-top:22px;color:var(--muted);font-size:.78rem;line
 footer strong{color:var(--ink)}
 .dl{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
 @media(max-width:1150px){.control-block{grid-template-columns:1fr}.dashboard{grid-template-columns:1fr}#map{height:600px}}
-@media(max-width:700px){.masthead{flex-direction:column;align-items:flex-start}#map{height:460px}.facts{grid-template-columns:1fr 1fr}.legend-scale,.legend-ticks{grid-template-columns:repeat(6,38px)}.legend-ticks .end{left:38px}}
+@media(max-width:700px){.masthead{flex-direction:column;align-items:flex-start}#map{height:460px}.facts{grid-template-columns:1fr 1fr}.legend{--lw:38px}}
 .tabs{display:flex;gap:0;margin:0 0 14px;border-bottom:1px solid var(--line)}
 .tabs button{background:transparent;border:0;border-bottom:3px solid transparent;padding:10px 16px 9px;font-weight:800;font-size:.86rem;letter-spacing:.02em;color:var(--muted);cursor:pointer}
 .tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--accent)}
@@ -546,9 +546,9 @@ function renderMap(){
   const lg=$("legend"); lg.innerHTML="";
   const title=document.createElement("span"); title.className="legend-title";
   title.textContent = state.mode==="level" ? "€ per m² (sample-average apartment)" : `% change since ${state.base}`;
-  const box=document.createElement("div"), sw=document.createElement("div"), tk=document.createElement("div"); sw.className="legend-scale"; tk.className="legend-ticks";
+  const box=document.createElement("div"), sw=document.createElement("div"), tk=document.createElement("div"); box.className="legend-box"; sw.className="legend-scale"; tk.className="legend-ticks";
   ramp().forEach(c=>{ const s=document.createElement("span"); s.className="sw"; s.style.background=c; sw.appendChild(s); });
-  sc.breaks.slice(0,6).forEach((b,i)=>{ const s=document.createElement("span"); s.textContent=fmtBreak(b); if(i===5){ const e=document.createElement("span"); e.className="end"; e.textContent=fmtBreak(sc.breaks[6]); s.appendChild(e);} tk.appendChild(s); });
+  sc.breaks.slice(0,7).forEach((b,i)=>{ const s=document.createElement("span"); s.textContent=fmtBreak(b); s.style.left=`calc(var(--lw) * ${i} - ${i===6?1:0}px)`; tk.appendChild(s); });
   box.append(sw,tk); lg.append(title,box);
   if(state.geo==="section" && state.hatch){ const h=document.createElement("span"); h.className="legend-hatch"; h.innerHTML=`<svg viewBox="0 0 22 12"><defs><pattern id="lh" patternUnits="userSpaceOnUse" width="5" height="5" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="${cssVar("--ink")}" stroke-opacity=".5" stroke-width="1.3"/></pattern></defs><rect width="22" height="12" fill="${ramp()[2]}"/><rect width="22" height="12" fill="url(#lh)"/></svg>No own sales ${Y0}–${Y1}: value from nearby sales`; lg.appendChild(h); }
   const note=document.createElement("span"); note.textContent=`Lowest and highest 5% of ${g.plural} fall in the end classes.`; lg.appendChild(note);
