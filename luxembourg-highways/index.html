@@ -96,6 +96,18 @@ a{color:var(--accent-dark)}
 .sitebar{position:relative;z-index:30}
 .betanote{margin:14px 0 0;max-width:60em;border-left:3px solid var(--accent);background:var(--accent-soft);padding:8px 12px;font-size:.9rem}
 .betanote b{font-weight:900}
+.assume{margin:12px 0 0;max-width:60em;border:1px solid var(--line);border-radius:3px;background:var(--bg, transparent)}
+.assume>summary{list-style:none;cursor:pointer;padding:9px 12px;font-weight:700;font-size:.95rem;color:var(--ink);user-select:none}
+.assume>summary::-webkit-details-marker{display:none}
+.assume>summary::after{content:"";display:inline-block;width:.38em;height:.38em;margin-left:.6em;border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;transform:translateY(-.2em) rotate(45deg);transition:transform .15s}
+.assume[open]>summary::after{transform:translateY(.05em) rotate(-135deg)}
+.assume>summary:hover{color:var(--accent-dark)}
+.assume>summary small{font-weight:400;color:var(--muted);margin-left:.4em}
+.assume[open]>summary small{display:none}
+.assume ul{margin:0;padding:0 14px 12px 32px;font-size:.92rem;line-height:1.5}
+.assume li{margin:6px 0}
+.assume li b{font-weight:900}
+.assume .src{font-size:.82rem;color:var(--muted)}
 
 
 /* hero */
@@ -281,6 +293,18 @@ section.block .lead{margin:0 0 16px;max-width:52em;color:var(--muted)}
   <p class="dek">What would residents of the Greater Region pay for twice the capacity on every highway link inside Luxembourg? This dashboard shows the model's answer, together with the traffic, speeds and vehicle-kilometres behind it, under four ways the economy can adjust.</p>
   <p class="byline">Companion to Raian Kudashev and Pierre M. Picard, <a id="paperlink" href="#"><i>Welfare Effects of Congestion in Luxembourg and the Greater Region</i></a> (working paper). Every number is read from the saved model outputs; nothing is re-estimated in the browser.</p>
   <p class="betanote"><b>Preliminary results.</b> These are results from a working paper; numbers may change as the paper develops. Feedback is very welcome: <a href="mailto:r.kudashev@vu.nl?subject=Highway%20dashboard%20feedback">r.kudashev@vu.nl</a>.</p>
+  <details class="assume" id="assume">
+    <summary>Key model assumptions<small>click to expand</small></summary>
+    <ul>
+      <li><b>Commuting is by car.</b> Every commuter drives, and road traffic consists of commuters only: public transport, freight and non-work trips are not modelled. This is not far from reality for cross-border work trips: 83% of commuters from France's Grand Est region to Luxembourg drive to work <span class="src">(INSEE, 2021 census, reported September 2026)</span>.</li>
+      <li><b>Drivers choose routes and congestion responds.</b> Drivers pick among many routes, favouring faster ones; travel time on each road rises with its traffic relative to its capacity. Doubling a highway's capacity therefore attracts traffic from other roads.</li>
+      <li><b>Homes and offices share one floorspace market.</b> In each place, residential and commercial users compete for the same buildings at one price, and the building stock does not change: nothing new is built in the counterfactuals. When better access raises firms' demand for space in Luxembourg City, they bid up its price and floorspace shifts from homes to offices, so the city gains jobs and loses residents.</li>
+      <li><b>Land is owned by the residents of each country.</b> Land income in a country is paid out equally to that country's residents, not to outside landlords. Higher land values in Luxembourg therefore benefit residents of Luxembourg.</li>
+      <li><b>Labour income is taxed where it is earned.</b> As under the prevailing tax treaties, wages are taxed in the country of work, while consumption and housing are taxed in the country of residence. Tax rates do not change; each government spends its revenue on public goods for its own residents.</li>
+      <li><b>Productivity and amenities are fixed.</b> Places do not become more productive or more pleasant as jobs or residents move in: there are no agglomeration effects.</li>
+      <li><b>Costs are not included.</b> Willingness to pay measures the gross benefit of the extra capacity. Construction and maintenance costs of the wider highways are not subtracted.</li>
+    </ul>
+  </details>
 </div>
 
 <div class="toolbar"><div class="wrap">
