@@ -306,7 +306,7 @@ section.block .lead{margin:0 0 16px;max-width:52em;color:var(--muted)}
 
 <main class="wrap">
   <div class="tiles" id="tiles"></div>
-  <p class="warn" id="openwarn" hidden>In the open city, expected utility is pinned to the outside option and total population adjusts instead, so its compensating variation is not a welfare measure. Its willingness-to-pay values are shown for completeness only.</p>
+  <p class="warn" id="openwarn" hidden>In the open city, expected utility is pinned to the outside option and total population adjusts instead, so willingness to pay is not a welfare measure there. Its values are shown for completeness only.</p>
   <p class="scnnote" id="scnnote"></p>
 
   <section class="block" id="mapsec">
@@ -328,7 +328,7 @@ section.block .lead{margin:0 0 16px;max-width:52em;color:var(--muted)}
 
   <section class="block">
     <h2>Who gains, by country</h2>
-    <p class="lead">Willingness to pay is minus the compensating variation: the income a resident would give up each year to keep the doubled highways. Tax revenue follows workplaces, so Luxembourg collects most of the fiscal gain even though residents across the border gain as well.</p>
+    <p class="lead">Willingness to pay is the income a resident would give up each year to keep the doubled highways. Tax revenue follows workplaces, so Luxembourg collects most of the fiscal gain even though residents across the border gain as well.</p>
     <div class="skey" id="skey"></div>
     <div class="cgrid">
       <div class="chart"><h3>Willingness to pay per resident</h3><p class="sub">€ per resident per year, by country of residence</p><div id="c-wtp"></div></div>
@@ -565,7 +565,7 @@ function drawMap(){
     speed: "Free-flow travel time divided by congested travel time: 100% means no delay. Darker links are slower.",
     dflow: "Brown links carry more traffic than at baseline, blue links less. The doubled highways attract traffic from parallel primary roads.",
     dspeed: "Brown links are faster than at baseline, blue links slower.",
-    wtp: "Minus the compensating variation, in euros per resident per year, by place of residence. Brown means a gain. Click a cell for its numbers in every scenario.",
+    wtp: "Willingness to pay, in euros per resident per year, by place of residence. Brown means a gain. Click a cell for its numbers in every scenario.",
     res_pct: "Change in the number of residents. Residents move only in the closed and open cities.",
     emp_pct: "Change in the number of jobs located in the cell.",
     price_pct: "Change in the floorspace price.",
@@ -671,7 +671,7 @@ function detail(){
       <p class="sub">Commune averages · baseline expected commute ${nf1.format(D.city.find(r => r.scenario === "B" && r.COMMUNE === sel.name).expected_tt / (1 + D.city.find(r => r.scenario === "B" && r.COMMUNE === sel.name).expected_tt_pct/100))} min</p>
       <table><thead><tr><th>Willingness to pay</th><th>€/resident</th><th></th></tr></thead><tbody>${t1}</tbody></table>
       <table style="margin-top:12px"><thead><tr><th>% change</th><th>Resid.</th><th>Jobs</th><th>Price</th><th>Commute</th></tr></thead><tbody>${t2}</tbody></table>
-      <p class="foot">* Open city: utility is pinned to the outside option, so compensating variation is not a welfare measure. Click a cell or link on the map for local detail.</p>`;
+      <p class="foot">* Open city: utility is pinned to the outside option, so willingness to pay is not a welfare measure. Click a cell or link on the map for local detail.</p>`;
     return;
   }
   if (sel.type === "link") {
@@ -742,7 +742,7 @@ function cityTable(){
   const arrow = k => citySort.k === k ? (citySort.dir < 0 ? "▼" : "▲") : "";
   tb.innerHTML = `<thead><tr><th>City</th>${CITY_COLS.map(c => `<th class="sortable" data-k="${c.k}" title="Sort">${c.h} <span class="ar">${arrow(c.k)}</span></th>`).join("")}</tr></thead><tbody>` +
     rows.map(r => `<tr tabindex="0" data-city="${r.COMMUNE}" class="${r.COMMUNE === selName ? "on" : ""}"><td>${r.city_label}</td>${CITY_COLS.map(c => `<td>${c.f(c.v(r), s)}</td>`).join("")}</tr>`).join("") + "</tbody>" +
-    (s === "F" ? `<tfoot><tr><td colspan="7" class="muted small" style="text-align:left;border:0">n/a: in the open city, utility is pinned to the outside option, so compensating variation is not a welfare measure.</td></tr></tfoot>` : "");
+    (s === "F" ? `<tfoot><tr><td colspan="7" class="muted small" style="text-align:left;border:0">n/a: in the open city, utility is pinned to the outside option, so willingness to pay is not a welfare measure.</td></tr></tfoot>` : "");
   tb.querySelectorAll("th.sortable").forEach(th => th.onclick = () => { const k = th.dataset.k; if (citySort.k === k) citySort.dir *= -1; else { citySort.k = k; citySort.dir = -1; } cityTable(); });
   tb.querySelectorAll("tbody tr").forEach(tr => { const go = () => selectCity(tr.dataset.city); tr.onclick = go; tr.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } }; });
 }
